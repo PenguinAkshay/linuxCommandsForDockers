@@ -1,0 +1,63 @@
+> Practical:
+Installation Of Docker Engine In RHEL Using CentOs Repo:
+1. Install Utils Package using Yum: #yum install -y yum-utils
+yum-utils package (which provides the yum-config-manager utility) and
+set up the repository.
+2. Configure centOs Repo : #yum install docker-ce docker-ce-cli --allowerasing
+containerd.io docker-buildx-plugin docker-compose-plugin
+3. Start Docker: #systemctl start docker
+4. To Know Status Of Docker : #systemctl start docker
+5. Run Docker Of Ubuntu : #docker run ubuntu
+docker run: This is the Docker command to create and run a container.
+ubuntu: Specifies the Docker image to use (in this case, the official
+Ubuntu Linux image).
+6. To Know Process of Docker : #docker ps
+7. Creation Of Container : #docker run –name c1 -it ubuntu /bin/sh
+ docker run: This is the Docker command to create and run a container.
+ --name c1: Sets the name of the container to "c1."
+-it: Allocates an interactive terminal, allowing you to interact with the
+container.
+ubuntu: Specifies the Docker image to use (in this case, the Ubuntu Linux
+image).
+/bin/sh: Launches a shell (specifically, the /bin/sh shell) inside the
+container.
+8. Inspect Docker: #docker inspect ubuntu
+This command will provide detailed information about the "ubuntu"
+image, including its configuration, layers, and other metadata. You can use this
+information to understand the image's properties and settings.
+9. To View Docker Images: #docker image list
+This command will provide detailed information about the "ubuntu"
+image, including its configuration, layers, and other metadata. You can use this
+information to understand the image's properties and settings.
+10. To Run Docker In Background: #docker run --name c1 -dt ubuntu /bin/sh
+This command creates a Docker container named "c1" based on the
+Ubuntu image. It runs the container in detached mode, and it also allocates
+a pseudo-TTY for interaction. The /bin/sh shell is started within the container,
+which allows you to execute commands or interact with the container later if
+needed.
+11. To run commands and interact with the container's environment: #docker
+exec -it c1 /bin/bash
+docker exec: This command is used to execute a command in a running
+container.
+it: Allocates an interactive terminal, allowing you to interact with the
+container.
+c1: Specifies the name or ID of the container you want to run the
+command in. In this case, it's "c1."
+/bin/bash: Launches a Bash shell within the specified container.
+12. To identify processes or containers: #ps -el | grep -i container
+ps -el: Lists all processes in a detailed format.
+grep -i container: Filters the output to show only lines that contain the
+word "container," regardless of case (case-insensitive search).
+13. To Check Dockerd (demon) running on your system: #ps -el | grep dockerd
+ps -el: Lists all processes in a detailed format.
+grep dockerd: Filters the output to show only lines that contain the word
+"dockerd."
+14. Stop Container: #docker stop c1
+15. Remove container : #docker remove c1
+16.Uninstall Docker Engine: #yum remove docker-ce docker-ce-cli containerd.io
+docker-buildx-plugin docker-compose-plugin docker-ce-rootless-extras
+>Images, containers, volumes, or custom configuration files on your host
+aren't automatically removed. To delete all images, containers, and volumes:
+#rm -rf /var/lib/docker
+#rm -rf /var/lib/containerd
+>You have to delete any edited configuration files manually.
